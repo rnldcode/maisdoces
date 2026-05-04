@@ -1,0 +1,165 @@
+/* O QUE FAZ: estrutura a seção de depoimentos ocupando boa parte da tela.
+   ONDE APARECE: bloco #testimonials.
+   QUANDO ATUA: em desktop, tablet e mobile com ajustes por breakpoint. */
+#testimonials {
+    min-height: calc(100vh - 91px); /* Altura mínima considerando header fixo */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center; /* Alinha horizontalmente ao centro */
+    /* O QUE FAZ: controla o espaço entre imagem da chef e coluna de feedbacks. */
+    gap: 60px; /* Espaçamento entre colunas */
+    background-color: #fff; /* Fundo branco */
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 40px; /* Espaçamento interno */
+    position: relative; /* Permite posicionamento de filhos */
+}
+
+/* O QUE FAZ: define tamanho da imagem lateral da chef sem distorção.
+   ONDE APARECE: #testimonials_chef.
+   QUANDO ATUA: enquanto a imagem estiver visível em telas maiores. */
+#testimonials_chef {
+    width: 500px; /* Largura fixa */
+    height: auto; /* Altura automática */
+    border-radius: 20px; /* Bordas arredondadas */
+    object-fit: cover; /* Cobertura total */
+    opacity: 0.8; /* Transparência leve */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+
+/* O QUE FAZ: adiciona efeito hover à imagem da chef.
+   ONDE APARECE: #testimonials_chef.
+   QUANDO ATUA: quando o mouse passa por cima. */
+#testimonials_chef:hover {
+    opacity: 1; /* Opacidade total */
+    transform: scale(1.02); /* Aumento sutil */
+}
+
+/* O QUE FAZ: amplia o subtítulo da seção para dar destaque visual.
+   ONDE APARECE: .section-subtitle dentro de #testimonials.
+   QUANDO ATUA: layout desktop. */
+#testimonials .section-subtitle {
+    font-size: 3rem; /* Tamanho grande */
+    text-align: left; /* Alinhamento à esquerda */
+    margin-bottom: 20px; /* Margem inferior */
+    color: #1d1d1d; /* Cor do texto */
+    line-height: 1.2; /* Altura da linha */
+}
+
+/* O QUE FAZ: limita a largura da coluna de conteúdo textual.
+   ONDE APARECE: #testimonials_content.
+   QUANDO ATUA: principalmente em telas maiores. */
+#testimonials_content {
+    width: 50%; /* Largura de 50% */
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Itens em coluna */
+    gap: 20px; /* Espaçamento entre elementos */
+}
+
+/* O QUE FAZ: empilha os cards de feedback com espaçamento uniforme.
+   ONDE APARECE: container #feedbacks.
+   QUANDO ATUA: em todos os tamanhos de tela. */
+#feedbacks {
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Itens em coluna */
+    gap: 20px; /* Espaçamento entre cards */
+    margin: 40px; /* Margem externa */
+}
+
+/* O QUE FAZ: estiliza cada cartão de depoimento (layout, sombra e borda).
+   ONDE APARECE: .feedback.
+   QUANDO ATUA: renderização da lista de avaliações. */
+.feedback {
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha verticalmente ao centro */
+    gap: 20px; /* Espaçamento entre avatar e conteúdo */
+    background-color: #fff; /* Fundo branco */
+    padding: 12px; /* Espaçamento interno */
+    border-radius: 12px; /* Bordas arredondadas */
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+/* O QUE FAZ: adiciona efeito hover ao card de feedback.
+   ONDE APARECE: .feedback.
+   QUANDO ATUA: quando o mouse passa por cima. */
+.feedback:hover {
+    transform: translateY(-2px); /* Eleva o card */
+    box-shadow: 0px 0px 16px 6px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+}
+
+/* O QUE FAZ: define tamanho e recorte circular do avatar do cliente.
+   ONDE APARECE: .feedback-avatar.
+   QUANDO ATUA: sempre. */
+.feedback-avatar {
+    width: 100px; /* Largura fixa */
+    height: 100px; /* Altura fixa */
+    border-radius: 100%; /* Forma circular */
+    object-fit: cover; /* Cobertura total */
+    border: 3px solid #ffcb45; /* Borda amarela */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+/* O QUE FAZ: adiciona efeito hover ao avatar.
+   ONDE APARECE: .feedback-avatar.
+   QUANDO ATUA: quando o mouse passa por cima. */
+.feedback-avatar:hover {
+    transform: scale(1.05); /* Aumento sutil */
+    border-color: #e9a209; /* Cor da borda mais escura */
+}
+
+/* O QUE FAZ: separa nome/estrelas e texto do depoimento horizontalmente.
+   ONDE APARECE: parágrafos dentro de .feedback-content.
+   QUANDO ATUA: no layout padrão dos cards. */
+.feedback-content p{
+    display: flex; /* Layout flexível */
+    justify-content: space-between; /* Distribui: nome à esquerda, estrelas à direita */
+    align-items: center; /* Alinha verticalmente ao centro */
+    margin: 0; /* Remove margem padrão */
+}
+
+/* O QUE FAZ: adapta a seção para tablets e notebooks menores.
+   ONDE APARECE: bloco #testimonials e filhos.
+   QUANDO ATUA: até 1170px. */
+@media screen and (max-width: 1170px) {
+    #testimonials {
+        flex-direction: column;
+    }
+    
+    #testimonials .section-subtitle {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    /* O QUE FAZ: oculta a imagem da chef para priorizar conteúdo em telas menores. */
+    #testimonials_chef {
+        display: none;
+    }
+
+    /* O QUE FAZ: centraliza a coluna de conteúdo em resoluções intermediárias. */
+    #testimonials_content {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* O QUE FAZ: aplica ajustes finais para celular.
+   ONDE APARECE: seção #testimonials.
+   QUANDO ATUA: até 600px. */
+@media screen and (max-width: 600px) {
+    #testimonials .section-subtitle {
+        font-size: 2rem;
+
+    }
+
+    #testimonials_content {
+        width: 100%;
+    }
+    /* O QUE FAZ: empilha avatar e texto para melhor leitura em telas pequenas. */
+    .feedback {
+        flex-direction: column;
+        
+    }
+}

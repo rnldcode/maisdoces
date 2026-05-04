@@ -1,0 +1,139 @@
+/* O QUE FAZ: importa a fonte Poppins do Google Fonts para todo o site.
+   ONDE APARECE: fonte padrão de todo o documento.
+   QUANDO ATUA: durante o carregamento da página. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* O QUE FAZ: importa os estilos do header (navegação).
+   ONDE APARECE: cabeçalho da página.
+   QUANDO ATUA: durante o carregamento da página. */
+@import url('header.css');
+
+/* O QUE FAZ: importa os estilos da seção Home (hero).
+   ONDE APARECE: seção principal da página.
+   QUANDO ATUA: durante o carregamento da página. */
+@import url('home.css');
+
+/* O QUE FAZ: importa os estilos da seção de menu/cardápio.
+   ONDE APARECE: seção de produtos.
+   QUANDO ATUA: durante o carregamento da página. */
+@import url('menu.css');
+
+/* O QUE FAZ: importa os estilos da seção de depoimentos.
+   ONDE APARECE: seção de avaliações dos clientes.
+   QUANDO ATUA: durante o carregamento da página. */
+@import url('testimonials.css');
+
+/* O QUE FAZ: importa os estilos do footer (rodapé).
+   ONDE APARECE: rodapé da página.
+   QUANDO ATUA: durante o carregamento da página. */
+@import url('footer.css');
+
+/* O QUE FAZ: define as variáveis de cores da aplicação.
+   ONDE APARECE: em todo o CSS através de var(--nome-da-variavel).
+   QUANDO ATUA: durante o carregamento da página. */
+:root {
+   --color-primary-1: #fff9ea; /* Amarelo muito claro */
+   --color-primary-2: #ffe8b4; /* Amarelo claro */
+   --color-primary-3: #f8d477; /* Amarelo médio */
+   --color-primary-4: #ffe100; /* Amarelo puro */
+   --color-primary-5: #ffcb45; /* Amarelo dourado */
+   --color-primary-6: #e9a209; /* Amarelo escuro (destaque) */
+
+   --color-neutral-0: #fff;   /* Branco */
+   --color-neutral-1: #1d1d1d; /* Preto/Texto principal */
+}
+/* O QUE FAZ: aplica reset global (fonte, margens, paddings e box model).
+   ONDE APARECE: em todos os elementos da página.
+   QUANDO ATUA: no carregamento inicial do CSS. */
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+      /* O QUE FAZ: define a cor de fundo geral do site.
+      ONDE APARECE: corpo inteiro da página.
+      QUANDO ATUA: sempre. */
+      /* 4. Compensação do topo para o conteúdo não ficar escondido */
+    padding-top: 100px; /* Ajuste conforme a altura do seu header */
+}
+
+section {
+    /* O QUE FAZ: cria espaçamento padrão das seções.
+       ONDE APARECE: em cada <section> do site.
+       QUANDO ATUA: sempre que houver section. */
+    padding: 28px 8%;
+}
+
+/* O QUE FAZ: estilo base dos botões reutilizáveis (.btn-default).
+   ONDE APARECE: header, CTA e botão de telefone.
+   QUANDO ATUA: em todos os elementos com classe .btn-default. */
+.btn-default {
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffcb45;
+    /* Correção: como .btn-default também é usado em <a>,
+       definimos cor e removemos sublinhado para não ficar azul padrão de link */
+    color: #1d1d1d;
+    text-decoration: none;
+    border-radius: 12px;
+    /* O QUE FAZ: define área clicável interna do botão.
+       ONDE APARECE: botões com .btn-default.
+       QUANDO ATUA: sempre. */
+    padding: 10px 14px;
+    font-weight: 600;
+    /* O QUE FAZ: adiciona sombra leve para destacar o botão.
+       ONDE APARECE: botões com .btn-default.
+       QUANDO ATUA: sempre. */
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.btn-default:hover {
+    /* O QUE FAZ: muda a cor ao passar o mouse (hover).
+       ONDE APARECE: botões com .btn-default.
+       QUANDO ATUA: em interação de mouse no desktop. */
+    background-color: #f8d477;
+
+}
+
+
+/* Estilo para o item da lista */
+.nav-item {
+    position: relative; /* Necessário para posicionar a faixa */
+}
+
+/* O link dentro do item ativo */
+/* Remove qualquer borda ou decoração padrão dos links */
+#nav_list .nav-item a {
+    text-decoration: none;
+    color: #000; /* Cor padrão do seu texto */
+    transition: 0.3s;
+   }
+
+/* Estilo do item ativo */
+#nav_list .nav-item.active a {
+    color: #000; /* Cor amarela para o texto */
+}
+
+/* Ajusta a imagem do bolo para caber perfeitamente no banner */
+.hero-cake-image {
+    width: 100%;      /* A imagem ocupa a largura disponível */
+    max-width: 500px; /* Define um limite máximo para não ficar gigante */
+    height: auto;     /* Mantém a proporção correta */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito opcional: a imagem aumenta levemente ao passar o mouse */
+.hero-cake-image:hover {
+    transform: scale(1.05);
+}

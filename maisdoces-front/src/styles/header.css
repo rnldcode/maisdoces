@@ -1,0 +1,206 @@
+/* O QUE FAZ: define a área do cabeçalho e seu espaçamento externo.
+   ONDE APARECE: faixa superior da página.
+   QUANDO ATUA: sempre. */
+/* 1. Cabeçalho Fixo e Transições */
+header {
+    width: 100%; /* Ocupa toda a largura da tela */
+    position: fixed; /* Fixa o elemento na tela */
+    top: 0; /* Alinha no topo absoluto */
+    left: 0; /* Alinha à esquerda */
+    z-index: 1000; /* Garante que o menu fique por cima de tudo (como o banner e shapes) */
+    background-color: #fff; /* Defina uma cor, senão ele ficará transparente ao rolar */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Opcional: dá profundidade ao rolar */
+    transition: all 0.3s ease; /* Transição suave para mudanças de padding/altura */
+    padding: 20px 8%; /* Ajustado para ser mais compacto */
+}
+
+/* O QUE FAZ: alinha logo, links e botões da navegação principal.
+   ONDE APARECE: dentro do header (#navbar).
+   QUANDO ATUA: sempre. */
+/* Navbar com altura controlada */
+#navbar {
+    width: 100%; /* Ocupa toda a largura do header */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    justify-content: space-between; /* Distribui itens: logo à esquerda, links ao centro, botões à direita */
+    height: 60px; /* Altura padrão inicial */
+    transition: height 0.3s ease; /* Transição suave para mudança de altura ao rolar */
+}
+
+/* O QUE FAZ: estiliza logo/texto da marca.
+   ONDE APARECE: canto esquerdo do header.
+   QUANDO ATUA: sempre. */
+#nav_logo {
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #e9a209; /* Cor amarela da marca */
+    white-space: nowrap; /* Impede quebra de linha no texto do logo */
+}
+
+/* O QUE FAZ: organiza os links do menu horizontalmente.
+   ONDE APARECE: navegação desktop.
+   QUANDO ATUA: em telas maiores. */
+#nav_list {
+    display: flex; /* Layout flexível */
+    list-style: none; /* Remove marcadores de lista padrão */
+    gap: 48px; /* Espaçamento entre os itens do menu */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+}
+
+/* 3. Ajuste da Faixa Amarela (Ancorada no Link) */
+.nav-item {
+    position: relative; /* Necessário para posicionar a faixa decorativa */
+    padding-bottom: 5px; /* Espaço para a faixa amarela */
+}   
+
+/* O QUE FAZ: define visual dos links do menu.
+   ONDE APARECE: itens de navegação desktop/mobile.
+   QUANDO ATUA: sempre. */
+.nav-item a {
+    text-decoration: none; /* Remove sublinhado padrão */
+    color: #1d1d1d; /* Cor padrão do texto */
+    transition: 0.3s; /* Transição suave para hover */
+}
+
+/* O QUE FAZ: destaca o item de menu ativo.
+   ONDE APARECE: link selecionado da navegação.
+   QUANDO ATUA: quando classe .active é aplicada. */
+.nav-item.active a {
+    color: #1d1d1d; /* Cor do texto quando ativo */
+    border-bottom: 3px solid #ffe100; /* Faixa amarela decorativa */
+}
+
+/* O QUE FAZ: ajusta apenas os botões de ação do header,
+   sem sobrescrever o estilo global de .btn-default. */
+#navbar > .btn-default,
+#mobile_menu > .btn-default {
+    text-decoration: none; /* Remove sublinhado padrão */
+    white-space: nowrap; /* Impede quebra de linha */
+}
+
+/* O QUE FAZ: define botão hambúrguer para abrir menu mobile.
+   ONDE APARECE: canto direito da navbar.
+   QUANDO ATUA: em telas menores. */
+#mobile_btn {
+    display: none; /* Oculto por padrão (desktop) */
+    border: none; /* Remove borda padrão */
+    background: transparent; /* Fundo transparente */
+    font-size: 1.4rem; /* Tamanho do ícone */
+    color: #1d1d1d; /* Cor do ícone */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+}
+
+/* O QUE FAZ: mantém menu mobile oculto por padrão.
+   ONDE APARECE: bloco #mobile_menu.
+   QUANDO ATUA: antes de receber classe .active. */
+#mobile_menu {
+    display: none; /* Oculto por padrão */
+}
+
+/* O QUE FAZ: ajusta o header para layout mobile.
+   ONDE APARECE: toda a navegação em telas pequenas.
+   QUANDO ATUA: até 1170px de largura. */
+@media screen and (max-width: 1170px) {
+    #nav_list,
+    #navbar .btn-default {
+        display: none; /* Oculta navegação desktop */
+    }
+
+    #mobile_btn {
+        /* O QUE FAZ: exibe botão hambúrguer.
+           ONDE APARECE: navbar em telas menores.
+           QUANDO ATUA: dentro do breakpoint mobile. */
+        display: block; /* Exibe botão hambúrguer */
+    }
+
+    #mobile_menu.active {
+        /* O QUE FAZ: mostra menu mobile com layout em coluna.
+           ONDE APARECE: abaixo da navbar.
+           QUANDO ATUA: quando JS aplica classe .active. */
+        display: flex; /* Layout flexível */
+        flex-direction: column; /* Itens em coluna */
+        align-items: center; /* Alinha ao centro */
+        gap: 12px; /* Espaçamento entre itens */
+        margin-top: 16px; /* Espaço acima do menu */
+    }
+
+    #mobile_nav_list {
+        /* O QUE FAZ: organiza lista de links no menu mobile.
+           ONDE APARECE: dentro de #mobile_menu.
+           QUANDO ATUA: no modo mobile. */
+        display: flex; /* Layout flexível */
+        flex-direction: column; /* Itens em coluna */
+        align-items: center; /* Alinha ao centro */
+        gap: 12px; /* Espaçamento entre itens */
+        margin: 12px 0px; /* Margem superior e inferior */
+        list-style: none; /* Remove marcadores de lista */
+    }
+}
+header {
+    width: 100%;
+    position: fixed; /* Fixa o elemento na tela */
+    top: 0;          /* Alinha no topo absoluto */
+    left: 0;         /* Alinha à esquerda */
+    z-index: 1000;   /* Garante que o menu fique por cima de tudo (como o banner e shapes) */
+    background-color: #fff; /* Defina uma cor, senão ele ficará transparente ao rolar */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Opcional: dá profundidade ao rolar */
+}
+
+/* Quando rolar a página, encolhe suavemente */
+header.shrink {
+    padding: 10px 8%; /* Reduz o padding ao rolar */
+}
+
+/* Quando rolar a página, o header fica mais fino */
+header.shrink #navbar {
+    height: 40px; /* Altura reduzida mais confortável */
+}
+
+/* O QUE FAZ: organiza os botões sociais em linha.
+   ONDE APARECE: bloco de redes sociais na Home.
+   QUANDO ATUA: sempre. */
+.social-media-buttons {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    gap: 18px;
+    margin-top: 15px; 
+}
+
+.social-media-buttons a {
+    /* O QUE FAZ: estilo de cada botão social individual.
+       ONDE APARECE: ícones WhatsApp/Instagram/Facebook.
+       QUANDO ATUA: sempre. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 40px;
+    background-color: var(--color-neutral-0);
+    border-radius: 10px;
+    text-decoration: none;
+    /* O QUE FAZ: adiciona sombra nos ícones sociais.
+       ONDE APARECE: em cada link social.
+       QUANDO ATUA: sempre. */
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    transition: all .3s ease, 
+}
+
+/* Garante que o ícone dentro do link seja visível */
+.social-media-buttons a i {
+    font-size: 1.5rem; 
+    color: var(--color-neutral-1);
+}
+
+.social-media-buttons a:hover {
+    /* O QUE FAZ: muda cor de fundo no hover dos ícones.
+       ONDE APARECE: botões sociais.
+       QUANDO ATUA: ao passar mouse sobre ícone social. */
+    background-color: var(--color-primary-5);
+    transform: translateY(-3px); /* Efeito de flutuar ao passar o mouse */
+}
+
+/* Garantir que os ícones do Font Awesome sejam exibidos */
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: normal;
+}

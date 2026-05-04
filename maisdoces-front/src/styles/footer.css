@@ -1,0 +1,43 @@
+footer {
+    background-color: #fffe8f;
+}
+
+#footer_itens {
+    display: flex;
+    justify-content: space-between; /* Empurra os itens para os extremos */
+    padding: 2px 8% 24px 8%;        /* Adiciona um respiro nas laterais */
+    align-items: center;            /* Alinha verticalmente no centro */
+}
+
+#copyright {
+    color: #1d1d1d;
+    font-weight: 500;
+}
+
+.admin-link {
+    font-size: 0.75rem;
+    color: #666;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.admin-link:hover {
+    opacity: 1;
+    color: #333;
+}
+
+.admin-link i {
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 600px) {
+    #footer_itens {
+        flex-direction: column;
+        gap: 20px;
+
+    }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "Donuts artesanais",
+    "description": "Massa leve e cobertura especial.",
+    "price": "R$25,00",
+    "image": "src/images/donutscolorido.png",
+    "image_class": "dish-image-donuts",
+    "rating": 5,
+    "rating_count": 500
+  },
+  {
+    "id": "2",
+    "title": "Bolo decorado",
+    "description": "Perfeito para festas e datas especiais.",
+    "price": "R$175,00 / kg",
+    "image": "src/images/bolodecorado.png",
+    "image_class": "dish-image-donuts",
+    "rating": 5,
+    "rating_count": 500
+  },
+  {
+    "id": "3",
+    "title": "Combo de doces",
+    "description": "Seleção dos doces mais pedidos da casa.",
+    "price": "R$20,00",
+    "image": "src/images/combodonuts.png",
+    "image_class": "dish-image-donuts",
+    "rating": 5,
+    "rating_count": 500
+  },
+  {
+    "id": "4ff6b7a8-e1fe-44a0-b342-d1c1c048c5b9",
+    "title": "Bolo de aniversário",
+    "description": "Delicioso Bolo De Chocolate",
+    "price": "175,00",
+    "image": "https://png.pngtree.com/png-vector/20240208/ourmid/pngtree-delicious-chocolate-cake-png-image_11714171.png",
+    "image_class": "",
+    "rating": 5,
+    "rating_count": 500
+  }
+]

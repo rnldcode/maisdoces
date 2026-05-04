@@ -1,0 +1,248 @@
+/* O QUE FAZ: define layout principal da seção Home (hero).
+   ONDE APARECE: primeiro bloco do conteúdo principal.
+   QUANDO ATUA: sempre, com ajustes responsivos. */
+#home {
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    justify-content: space-between; /* Distribui: texto à esquerda, imagem à direita */
+    gap: 32px; /* Espaçamento entre colunas */
+    min-height: calc(100vh - 91px); /* Altura mínima considerando header fixo */
+    position: relative; /* Permite posicionamento absoluto de filhos */
+    padding-top: 100px; /* Espaço para header fixo */
+    min-height: 100vh; /* Altura mínima da viewport */
+    /* O QUE FAZ: cria respiro lateral para o conteúdo não colar nas bordas.
+       ONDE APARECE: seção #home.
+       QUANDO ATUA: sempre. */
+    padding: 8px 8% 16px; /* Padding lateral de 8% e superior/inferior */
+    overflow: hidden; /* Oculta overflow para shapes */
+}
+
+/* O QUE FAZ: organiza o bloco textual (título, descrição e ações).
+   ONDE APARECE: coluna esquerda da Home.
+   QUANDO ATUA: sempre. */
+#cta {
+    flex: 1 1 480px; /* Flexível, base 480px */
+    max-width: 560px; /* Limite máximo de largura */
+    width: 100%; /* Ocupa espaço disponível */
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Itens em coluna */
+    gap: 18px; /* Espaçamento entre elementos */
+    margin: 0; /* Remove margem padrão */
+    position: relative; /* Permite posicionamento de filhos */
+    z-index: 2; /* Sobrepondo ao shape */
+}
+
+/* O QUE FAZ: garante que os botões sociais sejam visíveis e sobrepostos.
+   ONDE APARECE: bloco de redes sociais na Home.
+   QUANDO ATUA: sempre. */
+.social-media-buttons {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    gap: 18px;
+    margin-top: 15px; 
+}
+
+.social-media-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 40px;
+    background-color: var(--color-neutral-0);
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    transition: all .3s ease, 
+}
+
+/* Garante que o ícone dentro do link seja visível */
+.social-media-buttons a i {
+    font-size: 1.5rem; 
+    color: var(--color-neutral-1);
+}
+
+.social-media-buttons a:hover {
+    background-color: var(--color-primary-5);
+    transform: translateY(-3px);
+}
+
+/* Garantir que os ícones do Font Awesome sejam exibidos */
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: normal;
+}
+
+#cta .title {
+    /* O QUE FAZ: controla tamanho responsivo do título principal.
+       ONDE APARECE: headline da seção Home ("O sabor que toca em você").
+       QUANDO ATUA: sempre, adaptando por largura da tela. */
+    font-size: clamp(2rem, 4vw, 3.4rem); /* Tamanho responsivo: 32px a 54px */
+    line-height: 1.1; /* Altura da linha */
+    color: #1d1d1d; /* Cor do texto */
+}
+
+#cta .title span {
+    /* O QUE FAZ: destaca palavra-chave com cor de ênfase.
+       ONDE APARECE: palavra "você" no título.
+       QUANDO ATUA: sempre. */
+    color: #e9a209; /* Cor amarela da marca */
+}
+
+#cta .description {
+    /* O QUE FAZ: define tamanho do parágrafo descritivo.
+       ONDE APARECE: abaixo do título da Home.
+       QUANDO ATUA: sempre. */
+    font-size: 1.05rem; /* Tamanho da fonte */
+    line-height: 1.6; /* Altura da linha para melhor leitura */
+    color: #434343; /* Cor do texto secundário */
+}
+
+/* O QUE FAZ: organiza os botões principais (CTA) em linha.
+   ONDE APARECE: abaixo da descrição.
+   QUANDO ATUA: sempre. */
+#cta_buttons {
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    gap: 16px; /* Espaçamento entre botões */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    margin-top: 8px; /* Reduzido de 16px para 8px para diminuir o recuo */
+}
+
+#cta_buttons .btn-default {
+    /* O QUE FAZ: garante leitura/alinhamento dos botões CTA.
+       ONDE APARECE: botão "Ver menu" e botão de telefone.
+       QUANDO ATUA: sempre. */
+    text-decoration: none; /* Remove sublinhado padrão */
+    color: #1d1d1d; /* Cor do texto */
+    min-height: 42px; /* Altura mínima do botão */
+    white-space: nowrap; /* Impede quebra de linha */
+}
+
+#phone_button i {
+    /* O QUE FAZ: ajusta espaçamento do ícone de telefone.
+       ONDE APARECE: dentro do botão de contato.
+       QUANDO ATUA: sempre. */
+    margin-right: 6px; /* Espaço entre ícone e texto */
+}
+
+/* O QUE FAZ: controla posicionamento da imagem principal.
+   ONDE APARECE: coluna direita da Home.
+   QUANDO ATUA: sempre. */
+#banner {
+    flex: 1 1 420px; /* Flexível, base 420px */
+    width: 100%; /* Ocupa espaço disponível */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: flex-end; /* Alinha horizontalmente à direita */
+    position: relative; /* Permite posicionamento de filhos */
+    z-index: 2; /* Sobrepondo ao shape */
+}
+
+#banner img {
+    /* O QUE FAZ: mantém imagem adaptável sem distorção.
+       ONDE APARECE: ilustração da Home.
+       QUANDO ATUA: sempre. */
+    width: min(100%, 640px); /* Largura responsiva */
+    height: auto; /* Altura automática */
+    object-fit: contain; /* Mantém proporção */
+}
+
+/* Ajuste específico do bolo principal (ao lado do texto) */
+.hero-cake-image {
+    width: min(72%, 420px); /* Largura responsiva */
+    margin: 0 auto; /* Centraliza a imagem */
+    background-color: transparent; /* Fundo transparente */
+    mix-blend-mode: normal; /* Modo de mistura normal */
+    background-image: none; /* Remove qualquer fundo quadriculado */
+    background-repeat: no-repeat; /* Evita repetição de fundo */
+    background-size: cover; /* Cobertura completa se houver fundo */
+}
+
+/* O QUE FAZ: desenha shape decorativa de fundo.
+   ONDE APARECE: lado direito da Home.
+   QUANDO ATUA: em desktop e tablet (até ser ocultada em mobile menor). */
+.shape {
+    background-color: #ffe8b4; /* Cor amarela clara */
+    width: 56%; /* Largura do shape */
+    height: 100%; /* Altura total */
+    position: absolute; /* Posicionamento absoluto */
+    border-radius: 44% 30% 0% 20%; /* Forma arredondada */
+    top: 0; /* Alinha ao topo */
+    right: 0; /* Alinha à direita */
+    z-index: 1; /* Atrás do conteúdo */
+}
+
+/* O QUE FAZ: padroniza o título de seção com cor de destaque da marca.
+   ONDE APARECE: em títulos como "Depoimentos" e "Cardápio".
+   QUANDO ATUA: sempre que .section-title for utilizado no HTML. */
+.section-title {
+    color: #e9a209; /* Cor amarela da marca */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    font-weight: 600; /* Peso da fonte */
+    text-transform: uppercase; /* Texto em caixa alta */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+/* O QUE FAZ: define o subtítulo principal de cada seção.
+   ONDE APARECE: textos de apoio abaixo de .section-title.
+   QUANDO ATUA: sempre, respeitando ajustes responsivos em outros arquivos. */
+.section-subtitle {
+    font-size: 2rem; /* Tamanho da fonte */
+    margin-top: 4px; /* Margem superior */
+    margin-bottom: 20px; /* Margem inferior */
+    color: #1d1d1d; /* Cor do texto */
+    line-height: 1.2; /* Altura da linha */
+}
+
+/* O QUE FAZ: adapta layout da Home para telas menores.
+   ONDE APARECE: seção Home inteira.
+   QUANDO ATUA: até 1170px. */
+@media screen and (max-width: 1170px) {
+    #home {
+        flex-direction: column; /* Layout em coluna */
+        align-items: flex-start; /* Alinha à esquerda */
+        gap: 24px; /* Espaçamento entre elementos */
+    }
+
+    #banner,
+    #banner img,
+    #home .shape {
+        /* O QUE FAZ: oculta banner e shape para priorizar texto em telas menores. */
+        display: none; /* Oculta elementos */
+        max-width: 70%; /* Largura máxima */
+        flex-basis: auto; /* Base flexível */
+    }
+
+    #cta {
+        width: 100%; /* Ocupa toda a largura */
+        text-align: center; /* Texto centralizado */
+        align-items: center; /* Itens centralizados */
+    }
+
+    #banner {
+        justify-content: center; /* Centraliza a imagem */
+    }
+
+    .shape {
+        width: 100%; /* Ocupa toda a largura */
+        height: 45%; /* Altura reduzida */
+        border-radius: 0 0 30% 30%; /* Forma arredondada inferior */
+        top: auto; /* Remove posicionamento superior */
+        bottom: 0; /* Posiciona na base */
+    }
+}
+
+@media screen and (max-width: 450px) {
+    /* O QUE FAZ: compacta botões e remove shape em telas pequenas.
+       ONDE APARECE: Home mobile.
+       QUANDO ATUA: até 768px. */
+    #cta_buttons {
+        gap: 10px; /* Espaçamento reduzido */
+        margin-top: 10px; /* Margem superior reduzida */
+    }
+
+    .shape {
+        display: none; /* Oculta shape */
+    }
+}

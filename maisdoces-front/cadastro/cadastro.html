@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O QUE FAZ: carrega os ícones (menu, telefone e redes sociais). -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- O QUE FAZ: aplica estilos globais (cores base, botão padrão e redes sociais). -->
+    <link rel="stylesheet" href="../src/styles/styles.css">
+    
+    <!-- O QUE FAZ: disponibiliza jQuery para o script de interação. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- O QUE FAZ: define o título exibido na aba do navegador. -->
+    <title>Cadastro de Produtos - Mais Doces</title>
+    <link rel="stylesheet" href="../src/styles/cadastro.css">
+</head>
+<body>
+    <!-- O QUE FAZ: estrutura o cabeçalho com navegação principal. -->
+    <header>
+        <nav id="navbar">
+            <i class="fa-solid fa-burger" id="nav_logo"> mais doces</i>
+
+            <ul id="nav_list">
+                <li class="nav-item">
+                    <a href="../index.html">Início</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#cadastro">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <a
+                class="btn-default"
+                href="https://wa.me/5511953426171?text=Olá!+Gostaria+de+fazer+um+pedido."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Pedidos aqui
+            </a>
+
+            <button id="mobile_btn" type="button" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- O QUE FAZ: monta o menu de navegação mobile. -->
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="../index.html">Início</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#cadastro">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <a
+                class="btn-default"
+                href="https://wa.me/5511953426271?text=Olá!+Gostaria+de+fazer+um+pedido."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Pedidos aqui
+            </a>
+        </div>
+    </header>
+
+    <!-- O QUE FAZ: define o conteúdo principal da página de cadastro. -->
+    <main>
+        <section id="cadastro">
+            <div class="form-container" id="login-container">
+                <h1 class="form-title">Login Administrativo</h1>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="admin-username">Usuário</label>
+                        <input type="text" id="admin-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Senha</label>
+                        <input type="password" id="admin-password" name="password" required>
+                    </div>
+                    <div class="btn-container">
+                        <button type="submit" class="btn-submit">Entrar</button>
+                    </div>
+                </form>
+                <div id="login-message" class="message"></div>
+            </div>
+
+            <div class="form-container">
+                <h1 class="form-title">Cadastro de Produto</h1>
+                
+                <form id="product-form">
+                    <div class="form-group">
+                        <label for="title">Título do Produto</label>
+                        <input type="text" id="title" name="title" placeholder="Ex: Donuts artesanais" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descrição do Produto</label>
+                        <textarea id="description" name="description" placeholder="Ex: Massa leve e cobertura especial." required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="price">Preço</label>
+                            <input type="text" id="price" name="price" placeholder="Ex: R$25,00" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">URL da Imagem</label>
+                            <input type="url" id="image" name="image" placeholder="https://exemplo.com/imagem.jpg" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="image_class">Classe da Imagem (opcional)</label>
+                            <input type="text" id="image_class" name="image_class" placeholder="dish-image-donuts" value="dish-image-donuts">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rating">Avaliação (1-5)</label>
+                            <input type="number" id="rating" name="rating" min="1" max="5" value="5">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rating_count">Número de Avaliações</label>
+                            <input type="number" id="rating_count" name="rating_count" value="500">
+                        </div>
+                    </div>
+
+                    <div class="preview-container" id="preview-container">
+                        <div class="preview-title">Pré-visualização do Produto:</div>
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <img id="preview-image" class="preview-image" src="" alt="">
+                            <div>
+                                <div id="preview-title" style="font-weight: bold; font-size: 1.2rem;"></div>
+                                <div id="preview-description" style="color: #666; margin: 5px 0;"></div>
+                                <div id="preview-price" style="color: #b3261e; font-weight: bold; font-size: 1.1rem;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn-container">
+                        <button type="submit" class="btn-submit">Cadastrar Produto</button>
+                        <button type="button" id="preview-btn" class="btn-secondary">Pré-visualizar</button>
+                        <button type="button" id="clear-btn" class="btn-secondary">Limpar Formulário</button>
+                    </div>
+                </form>
+
+                <div id="message" class="message"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- O QUE FAZ: estrutura o rodapé da página com copyright e redes sociais. -->
+    <footer>
+        <img src="../src/images/wave.svg" alt="">
+        
+        <div id="footer_itens">
+            <span id="copyright">
+                &copy 2026 R.L.
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="https://wa.me/5511953426271?text=Olá!+Gostaria+de+fazer+um+pedido." aria-label="Abrir WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="https://ig.me/m/mais.docesofc" aria-label="Abrir Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="Abrir Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- O QUE FAZ: carrega comportamento do menu mobile e item ativo. -->
+    <script>
+        // O QUE FAZ: inicia os comportamentos da página quando o DOM termina de carregar.
+        $(document).ready(function() {
+            // Quando clicar em qualquer link do menu desktop
+            $('#nav_list .nav-item').on('click', function() {
+                $('#nav_list .nav-item').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+            
+        // O QUE FAZ: abre/fecha menu mobile e alterna ícone do botão.
+        $('#mobile_btn').on('click', function () {
+            $('#mobile_menu').toggleClass('active');
+            $('#mobile_btn').find('i').toggleClass('fa-x');
+        });
+
+        // O QUE FAZ: atualiza item ativo da navegação e fecha menu mobile.
+        $('#nav_list .nav-item a, #mobile_nav_list .nav-item a').on('click', function () {
+            const alvo = $(this).attr('href');
+
+            $('#nav_list .nav-item, #mobile_nav_list .nav-item').removeClass('active');
+            $(`#nav_list .nav-item a[href="${alvo}"]`).parent().addClass('active');
+            $(`#mobile_nav_list .nav-item a[href="${alvo}"]`).parent().addClass('active');
+
+            $('#mobile_menu').removeClass('active');
+        });
+
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 50) {
+                $('header').addClass('shrink');
+            } else {
+                $('header').removeClass('shrink');
+            }
+        });
+
+        // O QUE FAZ: lógica de cadastro de produtos
+        const API_BASE = 'http://localhost:8000/api';
+        const TOKEN_KEY = 'maisdoces_admin_token';
+        const loginForm = document.getElementById('login-form');
+        const loginContainer = document.getElementById('login-container');
+        const loginMessageEl = document.getElementById('login-message');
+        const form = document.getElementById('product-form');
+        const formContainer = form.closest('.form-container');
+        const messageEl = document.getElementById('message');
+        const previewContainer = document.getElementById('preview-container');
+        const previewImage = document.getElementById('preview-image');
+        const previewTitle = document.getElementById('preview-title');
+        const previewDescription = document.getElementById('preview-description');
+        const previewPrice = document.getElementById('preview-price');
+
+        function getToken() {
+            return localStorage.getItem(TOKEN_KEY);
+        }
+
+        function setLoggedState(isLogged) {
+            loginContainer.style.display = isLogged ? 'none' : 'block';
+            formContainer.style.display = isLogged ? 'block' : 'none';
+        }
+
+        function showLoginMessage(text, type) {
+            loginMessageEl.textContent = text;
+            loginMessageEl.className = `message ${type}`;
+            loginMessageEl.style.display = 'block';
+        }
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const payload = {
+                username: document.getElementById('admin-username').value,
+                password: document.getElementById('admin-password').value
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/admin/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Credenciais inválidas');
+                }
+
+                const data = await response.json();
+                localStorage.setItem(TOKEN_KEY, data.access_token);
+                setLoggedState(true);
+                showLoginMessage('Login realizado com sucesso.', 'success');
+            } catch (error) {
+                showLoginMessage('Usuário ou senha inválidos.', 'error');
+            }
+        });
+
+        setLoggedState(!!getToken());
+
+        // Evento de submit do formulário
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const productData = Object.fromEntries(formData.entries());
+            
+            // Converte números
+            productData.rating = parseInt(productData.rating);
+            productData.rating_count = parseInt(productData.rating_count);
+
+            try {
+                const response = await fetch(`${API_BASE}/products`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${getToken()}`
+                    },
+                    body: JSON.stringify(productData)
+                });
+
+                if (response.ok) {
+                    showMessage('Produto cadastrado com sucesso!', 'success');
+                    form.reset();
+                    previewContainer.style.display = 'none';
+                } else {
+                    throw new Error('Erro ao cadastrar produto');
+                }
+            } catch (error) {
+                showMessage('Erro ao salvar produto. Verifique a API.', 'error');
+                console.error('Error:', error);
+            }
+        });
+
+        // Pré-visualização do produto
+        document.getElementById('preview-btn').addEventListener('click', () => {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const price = document.getElementById('price').value;
+            const image = document.getElementById('image').value;
+
+            if (!title || !description || !price || !image) {
+                showMessage('Preencha todos os campos obrigatórios para pré-visualizar.', 'error');
+                return;
+            }
+
+            previewTitle.textContent = title;
+            previewDescription.textContent = description;
+            previewPrice.textContent = price;
+            previewImage.src = image;
+            previewContainer.style.display = 'block';
+        });
+
+        // Limpar formulário
+        document.getElementById('clear-btn').addEventListener('click', () => {
+            form.reset();
+            previewContainer.style.display = 'none';
+            messageEl.style.display = 'none';
+        });
+
+        // Funções auxiliares
+        function showMessage(text, type) {
+            messageEl.textContent = text;
+            messageEl.className = `message ${type}`;
+            messageEl.style.display = 'block';
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
